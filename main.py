@@ -45,7 +45,7 @@ def mouse_coords():
     
 
 root = tk.Tk()
-root.title("Cookie Clicker Bot")
+root.title("Auto Clicker")
 root.geometry("300x300")
 
 tk.Label(root, text="X Coordinates:").pack(pady=5)
