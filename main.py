@@ -6,8 +6,10 @@ import sys
 import tkinter as tk
 import threading
 
-def click(x, y):
+#Mouse Click & Failsafe
+def click(x, y, cps):
     try:
+        delay = 1 / cps #Convert CPS to delay time
         while True:
             # FAILSAFE
             if keyboard.is_pressed("F2"):
@@ -16,14 +18,18 @@ def click(x, y):
                 sys.exit()
             
             pyautogui.click(x, y)
-            time.sleep(0.1)
+            time.sleep(delay)
     except pyautogui.FailSafeException:
         status_label.config(text="Failsafe Triggered: Stopping program", fg="red")
         root.after(2000, lambda: status_label.config(text=""))
         sys.exit()
 
+#Submit button action
 def on_submit():
     try:
+        cps = int(click_widget.get())
+        if cps <= 0:
+            raise ValueError("CPS must be greater than 0")
         x = int(x_widget.get())
         y = int(y_widget.get())
     except ValueError:
@@ -35,8 +41,9 @@ def on_submit():
     root.after(2000, lambda: status_label.config(text=""))
 
     # Run the autoclicker in a separate thread so it doesn't freeze the GUI
-    threading.Thread(target=click, args=(x, y), daemon=True).start()
+    threading.Thread(target=click, args=(x, y, cps), daemon=True).start()
 
+#Get & display mouse coordinates
 def mouse_coords():
     x, y = pyautogui.position()
     
@@ -47,6 +54,10 @@ def mouse_coords():
 root = tk.Tk()
 root.title("Auto Clicker")
 root.geometry("300x300")
+
+tk.Label(root, text="Clicks per second:").pack(pady=5)
+click_widget = tk.Entry(root)
+click_widget.pack(pady=5)
 
 tk.Label(root, text="X Coordinates:").pack(pady=5)
 x_widget = tk.Entry(root)
