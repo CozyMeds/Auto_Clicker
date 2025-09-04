@@ -25,10 +25,10 @@ Through trial and error, I built this tool to display coordinates, let me set th
 Instead of PyAutoGUI’s built-in failsafe, I implemented a custom **F2 stop key** for reliability.
 
 ## Download
-You can download teh latest release here:
+You can download the latest release here:
 👉 [Release Page](https://github.com/CozyMeds/Auto_Clicker/releases/tag/v1.0.0)
 
 ### Windows Users
 - Download the `.exe` file from the latest release  
-- Run it directly (no Python required)  
+- Run it directly
 - Press **F2** to stop auto-clicking
