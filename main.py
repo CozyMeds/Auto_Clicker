@@ -36,7 +36,7 @@ def on_submit():
         x = int(x_widget.get())
         y = int(y_widget.get())
     except ValueError:
-        status_label.config(text="❌ Please enter valid numbers!", foreground="red")
+        status_label.config(text="❌ Please enter a valid number", foreground="red")
         root.after(2000, lambda: status_label.config(text=""))
         return
 
