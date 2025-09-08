@@ -5,7 +5,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('C:/Python313/Lib/site-packages/customtkinter', 'customtkinter/'), ('orange.json', '.')],
+    datas=[('orange.json', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
