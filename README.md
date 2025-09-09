@@ -14,7 +14,7 @@ A very basic auto clicker for "clicker" or idle games.
 ## Tech Stack
 
 -   Python
--   Tkinter
+-   CustomTkinter
 -   PyAutoGUI
 
 ## How It Works
