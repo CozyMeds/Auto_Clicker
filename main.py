@@ -19,7 +19,7 @@ json_file_path = resource_path("orange.json")
 
 # Theme settings
 set_appearance_mode("System")  # auto-switch based on system setting
-set_default_color_theme(json_file_path)  # <- use your custom palette
+set_default_color_theme(json_file_path)  # <- custom palette
 
 # Mouse Click & Failsafe
 def click(x, y, cps):
